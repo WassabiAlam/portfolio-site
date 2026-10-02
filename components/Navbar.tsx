@@ -2,16 +2,17 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPhotoOpen, setIsPhotoOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
     <nav className="fixed w-full p-6 flex justify-between items-center z-50 bg-background/80 backdrop-blur-sm transition-colors duration-300 text-black">
       <Link href="/" className="text-2xl font-bold">Wasi Alam</Link>
-      <div className="flex gap-6 items-center">
+      <div className="hidden md:flex gap-6 items-center">
         <Link href="/about" className="hover:opacity-70 transition-opacity text-black">About</Link>
 
         {/* Photography Dropdown */}
@@ -56,6 +57,28 @@ export default function Navbar() {
           Contact
         </Link>
       </div>
+
+      {/* Hamburger Icon (Mobile) */}
+      <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-zinc-200 p-6 flex flex-col gap-6 items-center shadow-lg">
+          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+          <Link href="/photography/general" onClick={() => setIsMobileMenuOpen(false)}>Photography</Link>
+          <Link href="/videography/general" onClick={() => setIsMobileMenuOpen(false)}>Videography</Link>
+          <Link href="/design" onClick={() => setIsMobileMenuOpen(false)}>Design</Link>
+          <Link
+            href="/contact"
+            className="px-4 py-2 bg-black text-white rounded-full transition-opacity text-sm font-medium hover:opacity-80"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
+        </div>
+      )}
     </nav>
   );
 }
