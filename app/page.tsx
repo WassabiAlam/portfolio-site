@@ -59,7 +59,7 @@ export default function Home() {
         className="mt-12"
       >
         <Link
-          href="/photography"
+          href="/photography/general"
           className="text-sm uppercase tracking-widest border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition-colors !text-white"
         >
           View Work
