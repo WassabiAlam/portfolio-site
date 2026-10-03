@@ -4,6 +4,7 @@ import { useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -57,12 +58,12 @@ export default function Home() {
         transition={{ duration: 1, delay: 0.8 }}
         className="mt-12"
       >
-        <a
-          href="#featured"
+        <Link
+          href="/photography"
           className="text-sm uppercase tracking-widest border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition-colors !text-white"
         >
           View Work
-        </a>
+        </Link>
       </motion.div>
     </motion.div>
   );
