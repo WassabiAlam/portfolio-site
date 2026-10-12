@@ -12,6 +12,8 @@ const generalPhotos = [
   { src: "/assets/photography/general/general_6.JPG", alt: "General photo 6" },
   { src: "/assets/photography/general/general_7.JPG", alt: "General photo 7" },
   { src: "/assets/photography/general/general-8.jpg", alt: "General photo 8" },
+  { src: "/assets/photography/general/general-9.jpg", alt: "General photo 9" },
+  { src: "/assets/photography/general/general-10.jpg", alt: "General photo 10" },
 ];
 
 export default function GeneralPhotography() {
