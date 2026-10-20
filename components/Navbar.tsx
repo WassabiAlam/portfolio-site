@@ -8,6 +8,8 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPhotoOpen, setIsPhotoOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [isMobilePhotoOpen, setIsMobilePhotoOpen] = useState(false);
+  const [isMobileVideoOpen, setIsMobileVideoOpen] = useState(false);
 
   return (
     <nav className="fixed w-full p-6 flex justify-between items-center z-50 bg-background/80 backdrop-blur-sm transition-colors duration-300 text-black">
@@ -65,14 +67,76 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-zinc-200 p-6 flex flex-col gap-6 items-center shadow-lg">
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-          <Link href="/photography/general" onClick={() => setIsMobileMenuOpen(false)}>Photography</Link>
-          <Link href="/videography/general" onClick={() => setIsMobileMenuOpen(false)}>Videography</Link>
-          <Link href="/design" onClick={() => setIsMobileMenuOpen(false)}>Design</Link>
+        <div className="md:hidden absolute top-full left-0 w-full bg-white text-black border-b border-zinc-200 p-6 flex flex-col gap-6 items-center shadow-2xl z-50">
+          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:opacity-70">About</Link>
+
+          {/* Photography Mobile Dropdown */}
+          <div className="flex flex-col items-center gap-2 w-full">
+            <button
+              onClick={() => setIsMobilePhotoOpen(!isMobilePhotoOpen)}
+              className="flex items-center gap-1 text-lg font-medium hover:opacity-70"
+            >
+              Photography <ChevronDown size={18} className={`transition-transform ${isMobilePhotoOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isMobilePhotoOpen && (
+              <div className="flex flex-col gap-2 bg-zinc-50 p-3 rounded-lg w-full max-w-xs items-center border border-zinc-200">
+                <Link
+                  href="/photography/general"
+                  onClick={() => { setIsMobileMenuOpen(false); setIsMobilePhotoOpen(false); }}
+                  className="py-1.5 px-4 w-full text-center text-sm font-medium rounded hover:bg-zinc-200 text-zinc-800"
+                >
+                  General
+                </Link>
+                <Link
+                  href="/photography/events"
+                  onClick={() => { setIsMobileMenuOpen(false); setIsMobilePhotoOpen(false); }}
+                  className="py-1.5 px-4 w-full text-center text-sm font-medium rounded hover:bg-zinc-200 text-zinc-800"
+                >
+                  Events
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Videography Mobile Dropdown */}
+          <div className="flex flex-col items-center gap-2 w-full">
+            <button
+              onClick={() => setIsMobileVideoOpen(!isMobileVideoOpen)}
+              className="flex items-center gap-1 text-lg font-medium hover:opacity-70"
+            >
+              Videography <ChevronDown size={18} className={`transition-transform ${isMobileVideoOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isMobileVideoOpen && (
+              <div className="flex flex-col gap-2 bg-zinc-50 p-3 rounded-lg w-full max-w-xs items-center border border-zinc-200">
+                <Link
+                  href="/videography/concerts"
+                  onClick={() => { setIsMobileMenuOpen(false); setIsMobileVideoOpen(false); }}
+                  className="py-1.5 px-4 w-full text-center text-sm font-medium rounded hover:bg-zinc-200 text-zinc-800"
+                >
+                  Concerts
+                </Link>
+                <Link
+                  href="/videography/general"
+                  onClick={() => { setIsMobileMenuOpen(false); setIsMobileVideoOpen(false); }}
+                  className="py-1.5 px-4 w-full text-center text-sm font-medium rounded hover:bg-zinc-200 text-zinc-800"
+                >
+                  General
+                </Link>
+                <Link
+                  href="/videography/events"
+                  onClick={() => { setIsMobileMenuOpen(false); setIsMobileVideoOpen(false); }}
+                  className="py-1.5 px-4 w-full text-center text-sm font-medium rounded hover:bg-zinc-200 text-zinc-800"
+                >
+                  Events
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <Link href="/design" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:opacity-70">Design</Link>
           <Link
             href="/contact"
-            className="px-4 py-2 bg-black text-white rounded-full transition-opacity text-sm font-medium hover:opacity-80"
+            className="px-6 py-2.5 bg-black text-white rounded-full transition-opacity text-sm font-medium hover:opacity-80"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact
