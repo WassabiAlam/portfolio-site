@@ -136,7 +136,7 @@ export default function Navbar() {
           <Link href="/design" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium hover:opacity-70">Design</Link>
           <Link
             href="/contact"
-            className="px-6 py-2.5 bg-black text-white rounded-full transition-opacity text-sm font-medium hover:opacity-80"
+            className="px-6 py-2.5 bg-white text-black rounded-full transition-opacity text-sm font-medium border border-black hover:opacity-80"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact
