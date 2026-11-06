@@ -5,9 +5,11 @@ import PhotoGallery from "../components/PhotoGallery";
 
 const firstClassFestPhotos = [
   { src: "/assets/photography/events/JEF06265_graded.jpg", alt: "FirstClassFest Merch Pop-Up photo 1" },
-  { src: "/assets/photography/events/JEF06296_graded.jpg", alt: "FirstClassFest Merch Pop-Up photo 2" },
-  { src: "/assets/photography/events/JEF06308_graded.jpg", alt: "FirstClassFest Merch Pop-Up photo 3" },
-  { src: "/assets/photography/events/JEF06314_graded.JPG", alt: "FirstClassFest Merch Pop-Up photo 4" },
+  { src: "/assets/photography/events/JEF06273_graded.jpg", alt: "FirstClassFest Merch Pop-Up photo 2" },
+  { src: "/assets/photography/events/JEF06294_graded.jpg", alt: "FirstClassFest Merch Pop-Up photo 3" },
+  { src: "/assets/photography/events/JEF06296_graded.jpg", alt: "FirstClassFest Merch Pop-Up photo 4" },
+  { src: "/assets/photography/events/JEF06308_graded.jpg", alt: "FirstClassFest Merch Pop-Up photo 5" },
+  { src: "/assets/photography/events/JEF06314_graded.JPG", alt: "FirstClassFest Merch Pop-Up photo 6" },
 ];
 
 const vaxPhotos = [
